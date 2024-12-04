@@ -1,0 +1,99 @@
+/* General Container */
+.signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #F2E5DC;
+}
+
+/* Card Style */
+.signup-card {
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    padding: 30px 40px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    width: 400px;
+    text-align: center;
+}
+
+/* Title */
+.signup-title {
+    font-size: 24px;
+    color: #DB9A9A;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+/* Select Dropdown */
+select {
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    background: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: 0.3s ease;
+}
+
+select:focus {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Button Styling */
+.signup-btn {
+    background-color: #FF8F8F;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s ease;
+}
+
+.signup-btn:hover {
+    background-color: #DB9A9A;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Prompts Display */
+#prompts {
+    margin-top: 20px;
+    padding: 20px;
+    max-width: 600px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    line-height: 1.6;
+}
+
+#prompts p {
+    font-size: 18px;
+    color: #444;
+    margin: 0 0 10px;
+}
+
+/* Textarea for Journaling */
+textarea {
+    margin-top: 20px;
+    width: 80%;
+    height: 200px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #FF8F8F;
+    background-color: #F2E5DC;
+    resize: none;
+}
+
+/* Footer Text */
+.signup-text {
+    font-size: 14px;
+    color: #666;
+    margin-top: 15px;
+}
