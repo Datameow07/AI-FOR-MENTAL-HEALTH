@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journaling Prompts</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="signup-container">
+        <div class="signup-card">
+            <h1 class="signup-title">Journaling Prompts</h1>
+            <select id="category">
+                <option value="" disabled selected>Select a Category</option>
+                <option value="General">General</option>
+                <option value="Stress and Anxiety">Stress and Anxiety</option>
+                <option value="Self-Esteem and Confidence">Self-Esteem and Confidence</option>
+                <option value="Loneliness">Loneliness</option>
+                <option value="Emotional Healing">Emotional Healing</option>
+                <option value="Goal Setting and Motivation">Goal Setting and Motivation</option>
+            </select>
+            <button class="signup-btn" onclick="getPrompts()">Get Prompts</button>
+
+            <div id="prompts"></div>
+            <textarea id="journalEntry" placeholder="Write your thoughts here..."></textarea>
+            <button class="signup-btn" onclick="saveJournal()">Save Journal Entry</button>
+
+            <footer>
+                <p class="signup-text">© 2024 Journaling Assistant | Made for your well-being</p>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        async function getPrompts() {
+            const category = document.getElementById("category").value;
+            if (!category) {
+                alert("Please select a category.");
+                return;
+            }
+
+            const response = await fetch('http://127.0.0.1:5000/get_prompts', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ category: category })
+            });
+
+            const data = await response.json();
+            const promptsDiv = document.getElementById("prompts");
+            promptsDiv.innerHTML = "";
+
+            if (data.prompts) {
+                data.prompts.forEach((prompt, index) => {
+                    promptsDiv.innerHTML += `<p>${index + 1}. ${prompt}</p>`;
+                });
+            } else if (data.error) {
+                promptsDiv.innerHTML = `<p style="color: red;">${data.error}</p>`;
+            }
+        }
+
+        async function saveJournal() {
+            const journalEntry = document.getElementById("journalEntry").value;
+            if (!journalEntry) {
+                alert("Please write something in your journal.");
+                return;
+            }
+
+            const response = await fetch('http://127.0.0.1:5000/save_journal', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ journal_entry: journalEntry })
+            });
+
+            const data = await response.json();
+            alert(data.message || data.error);
+            document.getElementById("journalEntry").value = ""; // Clear the textarea
+        }
+    </script>
+</body>
+</html>
