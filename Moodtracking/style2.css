@@ -1,0 +1,97 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom right, #ffe6e6, #ffcccc); /* Pink-peach gradient */
+    color: #ff6699;
+    margin: 0;
+    padding: 20px;
+}
+
+h1, h2, h3 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #ff3366;
+}
+
+p {
+    text-align: center;
+    font-size: 16px;
+    color: #ff6699;
+}
+
+/* Main Container */
+#main-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(255, 153, 153, 0.3);
+}
+
+/* Mood Buttons */
+#mood-buttons {
+    margin-top: 20px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.mood-btn {
+    background: linear-gradient(to right, #ff6699, #ff9966); /* Pink to Peach */
+    border: none;
+    border-radius: 20px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(255, 102, 153, 0.3);
+}
+
+.mood-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(255, 102, 153, 0.5);
+}
+
+/* Chart Container */
+#chart-container {
+    margin-top: 30px;
+    background: #fff5f8; /* Light pink */
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(255, 153, 153, 0.4);
+    text-align: center;
+}
+
+canvas {
+    display: block;
+    margin: 0 auto;
+    max-height: 400px;
+}
+
+/* Mood Summary */
+#mood-summary-container {
+    margin-top: 20px;
+    background: #ffe6e6;
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(255, 153, 153, 0.3);
+}
+
+#mood-summary {
+    font-size: 16px;
+    font-weight: bold;
+    color: #ff3366;
+    text-align: center;
+}
