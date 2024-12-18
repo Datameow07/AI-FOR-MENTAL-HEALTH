@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Chatbot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="chatbox">
+        <h1>Welcome to the Mental Health Chatbot</h1>
+        <div id="chat-container">
+            <div id="messages">
+                {% if user_input %}
+                    <div><strong>You:</strong> {{ user_input }}</div>
+                    <div><strong>Bot:</strong> {{ bot_response }}</div>
+                {% endif %}
+            </div>
+        </div>
+        <form method="POST" action="/chat">
+            <input type="text" name="message" placeholder="Type your message..." required>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+</body>
+</html>
