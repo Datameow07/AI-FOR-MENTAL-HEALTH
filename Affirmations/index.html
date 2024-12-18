@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journaling Prompts</title>
+    <link rel="stylesheet" href="styles1.css">
+</head>
+<body>
+    <div class="signup-container">
+        <div class="signup-card">
+            <h1 class="signup-title">Affirmations and Journaling</h1>
+            
+            <textarea id="journalEntry" placeholder="Write your journal here..."></textarea>
+            <button class="signup-btn" onclick="submitJournal()">Submit Journal</button>
+
+            <div id="affirmations" class="affirmations"></div>
+
+            <footer>
+                <p class="signup-text">© 2024 Journaling Assistant | Made for your well-being</p>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        async function submitJournal() {
+            const journalEntry = document.getElementById("journalEntry").value;
+            if (!journalEntry) {
+                alert("Please write something in your journal.");
+                return;
+            }
+
+            // Sending the journal entry to the Flask backend for sentiment analysis
+            const response = await fetch('http://127.0.0.1:5000/get_affirmations', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ journal_entry: journalEntry })
+            });
+
+            const data = await response.json();
+            const affirmationsDiv = document.getElementById("affirmations");
+            affirmationsDiv.innerHTML = "";
+
+            if (data.affirmations) {
+                affirmationsDiv.innerHTML = "<h3>Your Affirmations:</h3>";
+                data.affirmations.forEach((affirmation, index) => {
+                    affirmationsDiv.innerHTML += `<p>${index + 1}. ${affirmation}</p>`;
+                });
+            } else if (data.error) {
+                affirmationsDiv.innerHTML = `<p style="color: red;">${data.error}</p>`;
+            }
+
+            document.getElementById("journalEntry").value = ""; // Clear the textarea
+        }
+    </script>
+</body>
+</html>
