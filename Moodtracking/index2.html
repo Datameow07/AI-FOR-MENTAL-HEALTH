@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood Tracker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style2.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div id="main-container">
+        <!-- Header Section -->
+        <header>
+            <h1>Mood Tracker</h1>
+            <p>Track your moods throughout the week and visualize your feelings with ease!</p>
+        </header>
+
+        <!-- Mood Buttons Section -->
+        <section id="mood-buttons">
+            <h2>How are you feeling today?</h2>
+            <div class="button-container">
+                <button class="mood-btn" data-mood="4">😄 Rad</button>
+                <button class="mood-btn" data-mood="3">🙂 Good</button>
+                <button class="mood-btn" data-mood="2">😐 Meh</button>
+                <button class="mood-btn" data-mood="1">😞 Bad</button>
+                <button class="mood-btn" data-mood="0">😭 Awful</button>
+            </div>
+        </section>
+
+        <!-- Chart Section -->
+        <section id="chart-container">
+            <h2>Your Weekly Mood Chart</h2>
+            <canvas id="moodChart"></canvas>
+        </section>
+
+        <!-- Mood Summary Section -->
+        <section id="mood-summary-container">
+            <h3>Weekly Mood Summary</h3>
+            <p id="mood-summary">Your weekly mood trend will appear here!</p>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
